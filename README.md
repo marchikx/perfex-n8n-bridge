@@ -1,5 +1,7 @@
 # Perfex n8n Bridge
 
+[![CI](https://github.com/marchikx/perfex-n8n-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/marchikx/perfex-n8n-bridge/actions/workflows/ci.yml) ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
 **Version 2.1.0** — Bi-directional automation between [Perfex CRM](https://www.perfexcrm.com/) and [n8n](https://n8n.io/), delivered as a Perfex module.
 
 ## What / for whom
