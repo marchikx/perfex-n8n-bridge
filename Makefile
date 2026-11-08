@@ -7,7 +7,7 @@ php-test:
 
 node-test:
 	node tests/verify-node.test.js
+	node tests/version-consistency.test.js
 
 lint-php:
-	php -n -l n8n_bridge/libraries/N8n_sender.php
-	php -n -l tests/sender-hmac.test.php
+	find n8n_bridge tests -name '*.php' -print0 | xargs -0 -n1 php -n -l

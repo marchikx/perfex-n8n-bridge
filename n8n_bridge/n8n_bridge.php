@@ -1,8 +1,18 @@
 <?php
+
+defined('BASEPATH') or exit('No direct script access allowed');
+
+/*
+Module Name: N8N Bridge
+Description: Bi-directional Perfex CRM to n8n automation with HMAC-signed webhooks and retry queue.
+Version: 2.1.0
+Requires at least: 2.3.*
+*/
+
 /**
- * N8N Bridge Module - Platinum Release v2.0
+ * N8N Bridge Module v2.1.0
  *
- * Professional Bi-Directional Automation Suite with:
+ * Bi-directional automation between Perfex CRM and n8n:
  * - Visual Analytics Dashboard with Chart.js
  * - HMAC-SHA256 signature authentication (Outbound)
  * - Event-based advanced routing (per-event webhook URLs)
@@ -16,11 +26,9 @@
  * @package     N8N_Bridge
  * @category    Module
  * @author      Perfex CRM Module
- * @version     2.0.0
+ * @version     2.1.0
  * @since       1.0.0
  */
-
-defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |--------------------------------------------------------------------------
 */
 defined('N8N_BRIDGE_MODULE_NAME') or define('N8N_BRIDGE_MODULE_NAME', 'n8n_bridge');
-defined('N8N_BRIDGE_MODULE_VERSION') or define('N8N_BRIDGE_MODULE_VERSION', '2.0.0');
+defined('N8N_BRIDGE_MODULE_VERSION') or define('N8N_BRIDGE_MODULE_VERSION', '2.1.0');
 
 /*
 |--------------------------------------------------------------------------
