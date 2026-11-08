@@ -1,0 +1,40 @@
+# Asks n8n, instead of asking our own harness.
+#
+# tests/verify-node.test.js hands the node a stub for getBinaryDataAsync, so it
+# proves the node against our belief about what n8n passes a Function node. A
+# wrong belief about exactly that shipped in March and threw on every request
+# for five months. This boots the real image, imports the published webhook and
+# verification nodes, and sends a signed HTTP request at the real webhook URL.
+name: e2e webhook in real n8n
+
+on:
+  push:
+    branches: [ci/e2e-webhook]
+  # Without this the stand never guards a merge: six runs so far, every one from
+  # a push to ci/e2e-webhook, none from a pull request. A check that exists and
+  # does not run where the decision is made is the same class of defect as the
+  # window this PR fixes.
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+      - name: syntax check changed PHP files
+        run: |
+          php -n -l n8n_bridge/libraries/N8n_sender.php
+          php -n -l tests/sender-hmac.test.php
+      - name: PHP sender HMAC regression tests
+        run: php -n tests/sender-hmac.test.php
+      - name: unit harness (fast, and now able to fail for the right reason)
+        run: node tests/verify-node.test.js
+      - name: verify in a real n8n
+        run: bash ci/e2e-webhook.sh
