@@ -11,7 +11,7 @@ Professional bi-directional automation suite connecting Perfex CRM to N8N workfl
 ### Core Features
 - **Real-time Webhooks** - Instant notifications when CRM events occur
 - **Bi-directional Sync** - Send data to N8N AND receive updates back
-- **HMAC-SHA256 Security** - Enterprise-grade signature authentication
+- **HMAC-SHA256 Security** - signed outbound webhooks, verified in the bundled n8n node
 - **Resilient Queue System** - Guaranteed delivery with exponential backoff
 - **Magic Button** - One-click manual triggers on Lead/Invoice detail pages
 
